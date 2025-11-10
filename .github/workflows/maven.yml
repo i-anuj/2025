@@ -26,7 +26,7 @@ jobs:
       uses: advanced-security/maven-dependency-submission-action@v5.0.0
 
     - name: Upload a Build Artifact
-      uses: actions/upload-artifacts@v5.0.0
+      uses: actions/upload-artifact@v5.0.0
       with:
         name: springboot
         path: target/*.jar
