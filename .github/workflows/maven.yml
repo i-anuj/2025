@@ -88,6 +88,6 @@ jobs:
    - name: push
      run: docker push hacked01/springboot-app:${{ github.sha }}
    - name: docker run
-     run: docker run -d -p 8080:8080 hacked01/springboot-app:{{ github.sha}}
+     run: docker run -d -p 8080:8080 hacked01/springboot-app:${{ github.sha}}
    - name: docker ls
      run: docker ls -a
