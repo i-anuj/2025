@@ -1,9 +1,14 @@
-FROM openjdk:8-jdk-alpine
+# Use a lightweight OpenJDK image
+FROM eclipse-temurin:17-jdk-alpine
 
-ARG artifact=target/aioofbot-0.0.1-SNAPSHOT.jar
+# Set working directory inside container
+WORKDIR /app
 
-WORKDIR /opt/app
+# Copy the built jar from the host
+COPY target/*.jar app.jar
 
-COPY ${artifact} app.jar
+# Expose the default Spring Boot port
+EXPOSE 8080
 
+# Run the Spring Boot application
 ENTRYPOINT ["java", "-jar", "app.jar"]
