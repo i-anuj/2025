@@ -80,10 +80,14 @@ jobs:
        username: ${{secrets.DOCKER_USERNAME}}
        password: ${{secrets.DOCKER_PASSWORD}}
    - name: build and psuh
-     run: docker build -t hacked01/springboot-app:1.0 .
+     run: docker build -t hacked01/springboot-app:${{ github.sha }} .
 
    - name: docker list
      run: docker images
 
    - name: push
-     run: docker push hacked01/springboot-app:1.0
+     run: docker push hacked01/springboot-app:${{ github.sha }}
+   - name: docker run
+     run: docker run -d -p 8080:8080 hacked01/springboot-app:{{ github.sha}}
+   - name: docker ls
+     run: docker ls -a
