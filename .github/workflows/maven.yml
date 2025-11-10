@@ -80,7 +80,7 @@ jobs:
        username: ${{secrets.DOCKER_USERNAME}}
        password: ${{secrets.DOCKER_PASSWORD}}
    - name: build and psuh
-     run: docker build -t springboot-app:1.0 .
+     run: docker build -t hacked01/springboot-app:1.0 .
 
    - name: docker list
      run: docker images
