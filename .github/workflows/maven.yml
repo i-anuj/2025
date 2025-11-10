@@ -84,3 +84,6 @@ jobs:
 
    - name: docker list
      run: docker images
+
+   - name: push
+     run: docker push hacked01/springboot-app:1.0
